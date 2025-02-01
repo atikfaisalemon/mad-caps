@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import Search from "./pages/Search";
-import Footer from "./pages/Footer";
+// import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <Route>
         <Route element={<NavBar />}>
           <Route path="/" element={<Shop />} />
+          {/* <Route path="/:id" element={} /> */}
           <Route path="about" element={<About />} />
           <Route path="search" element={<Search />} />
           <Route path="account" element={<Account />} />
