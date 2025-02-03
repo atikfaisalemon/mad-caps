@@ -1,32 +1,40 @@
 import { Outlet, NavLink } from "react-router";
 
 import Footer from "./pages/Footer";
-import Search from "./pages/Search";
 const NavBar = () => {
   return (
     <div>
-      <div className="flex flex-row justify-between mx-16 p-6 text-xl">
-        <div className="flex flex-row gap-6">
-          <NavLink className="border-3 px-6 rounded-full border-black" to="/">
-            Shop
-          </NavLink>
-          <NavLink
-            className="border-3 px-6 rounded-full border-black"
-            to="/about"
-          >
-            About
-          </NavLink>
-          <NavLink to="/search">Search</NavLink>
-        </div>
-        <h1>MADCAPS</h1>
-        <div className="flex flex-row gap-6">
-          <NavLink to="/account">Account</NavLink>
-          <NavLink
-            className="border-3 px-6 rounded-full border-black"
-            to="/cart"
-          >
-            Cart
-          </NavLink>
+      <div className=" bg-transparent fixed z-10 w-full">
+        <div className="flex flex-row justify-between mx-16 p-6 text-l">
+          <div className="flex flex-row gap-3 items-center">
+            <NavLink
+              className="border-2 px-6 p-1 rounded-full  border-black hover:bg-black hover:text-white flex items-center"
+              to="/"
+            >
+              SHOP
+            </NavLink>
+            <NavLink
+              className="border-2 px-6 p-1 rounded-full border-black hover:bg-black hover:text-white flex items-center"
+              to="/about"
+            >
+              ABOUT
+            </NavLink>
+            <NavLink to="/search">
+              <img className="w-5 h-5" src="/search.png" alt="" />
+            </NavLink>
+          </div>
+          <h1 className="text-2xl">MADCAPS</h1>
+          <div className="flex flex-row gap-6 items-center">
+            <NavLink to="/account">
+              <img className="w-6 h-6" src="/user.png" alt="" />
+            </NavLink>
+            <NavLink
+              className="border-2 px-6 p-1 rounded-full border-black hover:bg-black hover:text-white flex items-center"
+              to="/cart"
+            >
+              CART
+            </NavLink>
+          </div>
         </div>
       </div>
       <Outlet />
