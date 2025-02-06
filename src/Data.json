@@ -9,7 +9,7 @@
     ],
     "price": 15.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "A stylish leather cap perfect for any occasion."
@@ -24,7 +24,7 @@
     ],
     "price": 14.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Bright and bold yellow cap for a trendy look."
@@ -35,7 +35,7 @@
     "images": ["/imgs/White/1.jpg", "/imgs/White/2.jpg", "/imgs/White/3.jpg"],
     "price": 13.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Minimalist and clean white cap for any style."
@@ -50,7 +50,7 @@
     ],
     "price": 17.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "High-quality polo cap for casual wear."
@@ -65,7 +65,7 @@
     ],
     "price": 19.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Soft and comfortable cap with a stylish design."
@@ -80,7 +80,7 @@
     ],
     "price": 21.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Premium denim cap with an Audi-inspired look."
@@ -91,7 +91,7 @@
     "images": ["/imgs/Denim/1.jpg", "/imgs/Denim/2.jpg", "/imgs/Denim/3.jpg"],
     "price": 18.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Classic denim cap for everyday wear."
@@ -106,7 +106,7 @@
     ],
     "price": 20.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Stylish Converse cap with a sporty design."
@@ -121,7 +121,7 @@
     ],
     "price": 16.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "A trendy cap from the Chira-5 collection."
@@ -136,7 +136,7 @@
     ],
     "price": 15.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Unique and stylish cap from Chira-3."
@@ -151,7 +151,7 @@
     ],
     "price": 18.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Cool and fashionable cap from Chira-4 series."
@@ -166,7 +166,7 @@
     ],
     "price": 17.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Classic and stylish Chira-1 cap."
@@ -181,7 +181,7 @@
     ],
     "price": 19.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Trendy cap from the Chira-2 collection."
@@ -196,7 +196,7 @@
     ],
     "price": 22.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Soft and cozy Mashmaloo cap for a trendy look."
@@ -207,7 +207,7 @@
     "images": ["/imgs/Tommy/1.jpg", "/imgs/Tommy/2.jpg", "/imgs/Tommy/3.jpg"],
     "price": 24.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Premium Tommy cap with an elegant design."
@@ -222,7 +222,7 @@
     ],
     "price": 19.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Bold and stylish Chhira-red cap for a standout look."
@@ -237,7 +237,7 @@
     ],
     "price": 21.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "High-quality Jack Jon cap for casual wear."
@@ -252,7 +252,7 @@
     ],
     "price": 23.49,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Iconic 'Just Do It' cap for a sporty vibe."
@@ -267,7 +267,7 @@
     ],
     "price": 26.99,
     "isInStock": true,
-    "cart": false,
+    "cart": [],
     "wishlist": false,
     "new": false,
     "description": "Luxury Mercedes cap for a premium feel."

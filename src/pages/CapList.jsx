@@ -8,20 +8,22 @@ function CapList({ CapList }) {
 
   return (
     <div>
-      <div>
-        <div className="grid grid-cols-3  gap-4">
+      <div className="mt-24">
+        <div className="grid grid-cols-4 gap-3">
           {CapList.map((cap) => (
             <div
               key={cap.id}
               onClick={() => {
                 navigate(`/${cap.id}`);
               }}
-              className="border p-4 rounded h-[600px]"
+              className="p-4 rounded h-[600px]"
             >
               <SigleCapDtails cap={cap} />
-              <h3 className="text-lg font-semibold">{cap.name}</h3>
-              <p className="text-sm">{cap.description}</p>
-              <p className="font-bold text-blue-600">${cap.price}</p>
+              <div className="flex flex-row justify-between items-center">
+                <h3 className="text-xl font-semibold">{cap.name}</h3>
+
+                <p className="text-xl font-[3px]">{cap.price}TK</p>
+              </div>
             </div>
           ))}
         </div>

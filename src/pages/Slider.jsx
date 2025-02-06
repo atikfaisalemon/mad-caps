@@ -17,7 +17,7 @@ const Slider = () => {
       <div className="pt-16 ">
         <Swiper
           slidesPerView={1}
-          centeredSlides={false}
+          centeredSlides={true}
           slidesPerGroupSkip={1}
           grabCursor={true}
           keyboard={{

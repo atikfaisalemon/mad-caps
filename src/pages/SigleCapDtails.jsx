@@ -7,7 +7,7 @@ const SigleCapDtails = ({ cap }) => {
       onMouseLeave={() => setHovering(false)}
       src={hovering ? cap.images[1] : cap.images[0]}
       alt={cap.name}
-      className="w-full  object-cover mb-2"
+      className="w-full hover:border-2  object-cover mb-2 rounded-2xl"
     />
   );
 };
