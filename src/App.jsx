@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router";
 import UserContextProvider from "./context/UserContextProvider";
-import "./App.css";
 import NavBar from "./NavBar";
 import Shop from "./pages/Shop";
 import About from "./pages/About";
