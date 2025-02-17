@@ -1,10 +1,9 @@
-import { useState, useContext } from "react";
-import UserContext from "../context/UserContext";
+import { useState, useEffect } from "react";
 
-const QuantityButton = () => {
+const QuantityButton = ({ onChange, value }) => {
   const [clickedButton, setClickedButton] = useState(null);
-  const { quantity, setQuantity } = useContext(UserContext);
-
+  const [quantity, setQuantity] = useState(value ?? 1);
+  console.log("quantity", quantity);
   const handleIncrease = () => {
     setQuantity(quantity + 1);
     setClickedButton("increase");
@@ -16,6 +15,11 @@ const QuantityButton = () => {
       setClickedButton("decrease");
     }
   };
+
+  useEffect(() => {
+    onChange(quantity);
+  }, [onChange, quantity]);
+
   return (
     <div className="flex items-center gap-12">
       <button

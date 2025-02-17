@@ -32,6 +32,9 @@ const CartList = () => {
       )}
 
       <div className="w-full h-[1px] bg-gray-600 mb-10"></div>
+      <div>
+        <h1>Subtotal</h1>
+      </div>
     </div>
   );
 };
