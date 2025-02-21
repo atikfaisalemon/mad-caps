@@ -4,8 +4,7 @@ import { useContext } from "react";
 import Footer from "./pages/Footer";
 
 const NavBar = () => {
-  const { cartData } = useContext(UserContext);
-  const items = cartData?.length || 0;
+  const { totalQuantity } = useContext(UserContext);
 
   return (
     <div>
@@ -55,7 +54,7 @@ const NavBar = () => {
                 }`
               }
             >
-              CART {items}
+              CART {totalQuantity}
             </NavLink>
           </div>
         </div>

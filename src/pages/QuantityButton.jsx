@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const QuantityButton = ({ onChange, value }) => {
   const [clickedButton, setClickedButton] = useState(null);
   const [quantity, setQuantity] = useState(value ?? 1);
-  console.log("quantity", quantity);
+
   const handleIncrease = () => {
     setQuantity(quantity + 1);
     setClickedButton("increase");
@@ -21,7 +21,7 @@ const QuantityButton = ({ onChange, value }) => {
   }, [onChange, quantity]);
 
   return (
-    <div className="flex items-center gap-12">
+    <div className="flex items-center gap-6">
       <button
         className={`w-12 h-12 rounded-full border-2 flex justify-center items-center cursor-pointer 
               transition-all duration-200 text-xl font-light  hover:bg-black hover:text-white hover:border-black
@@ -36,7 +36,7 @@ const QuantityButton = ({ onChange, value }) => {
         -
       </button>
 
-      <div className="text-lg w-5 flex justify-center items-center ">
+      <div className="text-sm w-2 flex justify-center items-center ">
         {quantity}
       </div>
 

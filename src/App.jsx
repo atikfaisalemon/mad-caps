@@ -7,6 +7,7 @@ import Account from "./pages/Account";
 import Search from "./pages/Search";
 import CapDetails from "./pages/CapDetails";
 import CartList from "./pages/CartList";
+import Checkout from "./pages/Checkout";
 // import Footer from "./pages/Footer";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="account" element={<Account />} />
             <Route path="cartlist" element={<CartList />} />
           </Route>
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </UserContextProvider>

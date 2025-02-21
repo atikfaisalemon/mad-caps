@@ -7,6 +7,22 @@ const UserContextProvider = ({ children }) => {
   const [quantity, setQuantity] = useState(1);
 
   // cart state
+  const updateCartQuantity = (id, newQuantity) => {
+    setCartData((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id && item.quantity !== newQuantity
+          ? { ...item, quantity: newQuantity }
+          : item
+      )
+    );
+    localStorage.setItem("cart", JSON.stringify(cartData));
+  };
+  //  total quantity
+
+  const totalQuantity = cartData.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   //get cart from local storage
   const getProductFromLocalStorage = () => {
@@ -53,11 +69,13 @@ const UserContextProvider = ({ children }) => {
         cartData,
         selectedSize,
         quantity,
+        totalQuantity,
         setCartData,
         setSelectedSize,
         setQuantity,
         addToCart,
         removeFromCart,
+        updateCartQuantity,
       }}
     >
       {children}

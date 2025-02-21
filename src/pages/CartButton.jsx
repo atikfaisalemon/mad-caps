@@ -14,7 +14,7 @@ const CartButton = ({ cap }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    addToCart(capData);
+    addToCart(capData, quantity);
 
     navigate("/cartlist");
     console.log("cart item", cartData);
