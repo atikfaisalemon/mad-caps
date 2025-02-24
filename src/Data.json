@@ -1,20 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Classic Black Cap",
-    "images": [
-      "/imgs/Art-lether/1.jpg",
-      "/imgs/Art-lether/3.jpg",
-      "/imgs/Art-lether/2.jpg"
-    ],
-    "price": 15.99,
-    "isInStock": true,
-    "cart": [],
-    "wishlist": false,
-    "new": false,
-    "description": "A stylish leather cap perfect for any occasion."
-  },
-  {
     "id": 2,
     "name": "Yellow Cap",
     "images": [

@@ -70,3 +70,7 @@ body {
     transform: translateX(-55%);
   }
 }
+* {
+  font-family: Poppins;
+  scroll-behavior: smooth;
+}
