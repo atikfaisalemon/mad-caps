@@ -6,7 +6,7 @@ const Shop = () => {
   return (
     <div className="">
       <Slider />
-      <div className="mx-16 p-6">
+      <div className="md:mx-16 md:p-6">
         <CapList CapList={data} />
       </div>
     </div>

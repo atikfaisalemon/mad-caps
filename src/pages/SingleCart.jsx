@@ -30,7 +30,7 @@ const SingleCart = ({ cartData }) => {
             alt="Remove"
           />
           <img
-            src={cartData.images[0]}
+            src={cartData.images[0].formats.large.url}
             alt={cartData.name}
             className="w-30 h-30 object-cover rounded-lg"
           />

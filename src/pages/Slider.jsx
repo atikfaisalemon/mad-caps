@@ -1,9 +1,10 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
@@ -12,6 +13,35 @@ import "swiper/css/pagination";
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
 const Slider = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BASE_API_URL
+          }/api/categories/t2b4zy3f47x2ueykfhakpajp?populate[products][populate]=images`
+        );
+        const { data } = await response.json();
+
+        setData([...data.products, ...data.products]);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (!data) {
+    return null;
+  }
+  console.log("data carusol", data);
   return (
     <>
       <div className="pt-16 ">
@@ -27,43 +57,25 @@ const Slider = () => {
           breakpoints={{
             769: {
               slidesPerView: 3,
-              slidesPerGroup: 2,
+              slidesPerGroup: 1,
             },
           }}
           scrollbar={true}
-          navigation={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
+          navigation={false}
+          pagination={true}
+          modules={[Keyboard, Navigation, Pagination]}
         >
-          <SwiperSlide>
-            <img src="/imgs/Yellow/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Mokmol-polo/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="imgs/Denim-Audi/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="imgs/Converse/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Chira-5/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Chira-3/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Chira-4/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Chira-1/1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="/imgs/Chira-2/1.jpg" />
-          </SwiperSlide>
+          {data.map((product) => (
+            <SwiperSlide key={product.documentId}>
+              <img
+                onClick={() => {
+                  navigate(`/${product.documentId}`);
+                }}
+                src={product.images[0]?.formats.large.url ?? ""}
+                className="h-[600px] object-cover"
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </>
