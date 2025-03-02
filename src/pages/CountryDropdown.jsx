@@ -13,9 +13,9 @@ const CountryDropdown = () => {
   ];
 
   return (
-    <div className="mt-3">
+    <div className="mt-3  ">
       <select
-        className="border-1 w-[640px] p-3 rounded-md  bg-white cursor-pointer"
+        className="border-1 p-3 rounded-md max-w-[500px] bg-white cursor-pointer"
         value={selectedCountry}
         onChange={(e) => setSelectedCountry(e.target.value)}
       >

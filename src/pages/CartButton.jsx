@@ -22,7 +22,7 @@ const CartButton = ({ cap }) => {
 
   return (
     <div>
-      <div className="flex flex-col gap-6">
+      <div className="flex  flex-col  items-start gap-6">
         <QuantityButton
           onChange={(value) => {
             setQuantity(value);
@@ -31,7 +31,7 @@ const CartButton = ({ cap }) => {
         />
         <button
           onClick={handleAddToCart}
-          className="text-xl border-2 p-1 px-15 rounded-full hover:bg-black hover:text-white hover:border-black"
+          className="md:text-xl border-2 p-1 px-15 rounded-full hover:bg-black hover:text-white hover:border-black"
         >
           ADD TK {capData.price} {capData.name}
         </button>

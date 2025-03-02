@@ -3,6 +3,7 @@ import UserContext from "./context/UserContext";
 import { useContext, useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa"; // Importing burger and cross icons
 import { FiSearch, FiUser } from "react-icons/fi";
+import { useNavigate } from "react-router";
 import Footer from "./pages/Footer";
 
 const NavBar = () => {
@@ -11,6 +12,9 @@ const NavBar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const { query, setQuery } = useContext(UserContext);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -31,7 +35,7 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  console.log("qurey", query);
   return (
     <div>
       {/* 🖥️ Desktop Navbar */}
@@ -46,13 +50,22 @@ const NavBar = () => {
             isSearchOpen ? "max-h-[100px]" : "max-h-0"
           }`}
         >
-          <div className="w-full bg-white flex items-center px-20 py-3">
+          <form
+            className="w-full bg-white flex items-center px-20 py-3"
+            onSubmit={(e) => {
+              e.preventDefault(); // Prevent default form submission
+              navigate(`/search?query=${query}`); // Navigate to search page with query
+            }}
+          >
             <input
+              onChange={(e) => setQuery(e.target.value)}
               className="text-3xl text-black w-full focus:outline-none"
               placeholder="Search"
               type="text"
+              value={query}
             />
-          </div>
+          </form>
+
           <div className="bg-black w-full h-1"></div>
         </div>
 
@@ -85,9 +98,11 @@ const NavBar = () => {
             </NavLink>
 
             {/* 🔍 Search Button */}
-            <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
-              <FiSearch />
-            </button>
+            <NavLink>
+              <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
+                <FiSearch />
+              </button>
+            </NavLink>
           </div>
 
           <h1 className="md:text-2xl">MADCAPS</h1>
@@ -124,13 +139,22 @@ const NavBar = () => {
             isSearchOpen ? "max-h-[100px]" : "max-h-0"
           }`}
         >
-          <div className="w-full bg-white flex items-center px-5 py-2">
+          <form
+            className="w-full bg-white flex items-center px-5 py-2"
+            onSubmit={(e) => {
+              e.preventDefault(); // Prevent default form submission
+              navigate(`/search?query=${query}`); // Navigate to search page with query
+            }}
+          >
             <input
+              onChange={(e) => setQuery(e.target.value)}
               className="text-2xl placeholder-black w-full focus:outline-none"
               placeholder="Search"
               type="text"
+              value={query}
             />
-          </div>
+          </form>
+
           <div className="bg-black w-full h-1 mb-2"></div>
         </div>
 

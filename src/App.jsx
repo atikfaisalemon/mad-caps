@@ -8,23 +8,26 @@ import Search from "./pages/Search";
 import CapDetails from "./pages/CapDetails";
 import CartList from "./pages/CartList";
 import Checkout from "./pages/Checkout";
+import CreateAccount from "./pages/CreateAccount";
 // import Footer from "./pages/Footer";
 
 function App() {
   return (
     <UserContextProvider>
       <Routes>
-        <Route>
-          <Route element={<NavBar />}>
-            <Route path="/" element={<Shop />} />
-            <Route path="/:id" element={<CapDetails />} />
-            <Route path="about" element={<About />} />
-            <Route path="search" element={<Search />} />
-            <Route path="account" element={<Account />} />
-            <Route path="cartlist" element={<CartList />} />
-          </Route>
-          <Route path="checkout" element={<Checkout />} />
+        {/* Wrap all navbar-related pages under a common layout */}
+        <Route element={<NavBar />}>
+          <Route path="/" element={<Shop />} />
+          <Route path="/:id" element={<CapDetails />} />
+          <Route path="about" element={<About />} />
+          <Route path="search" element={<Search />} />
+          <Route path="account" element={<Account />} />
+          <Route path="cartlist" element={<CartList />} />
+          <Route path="create-account" element={<CreateAccount />} />
         </Route>
+
+        {/* Checkout page does not need NavBar */}
+        <Route path="checkout" element={<Checkout />} />
       </Routes>
     </UserContextProvider>
   );

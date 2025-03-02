@@ -18,17 +18,22 @@ const Checkout = () => {
   );
 
   return (
-    <div className="flex flex-row justify-center">
-      <div className="w-[55%] bg-white">
+    <div className="flex flex-row justify-center h-screen pb-50">
+      {/* Left Section - Information Form (Scrollable) */}
+      <div className="w-full sm:w-[60%] bg-white p-6 shadow-md overflow-y-auto">
         <Information />
       </div>
-      <div className="p-6  w-[45%] bg-yellow-400 ">
+
+      {/* Right Section - Cart Summary (Fixed) */}
+      <div className="w-full sm:w-[40%] bg-yellow-400 p-6 shadow-md sticky top-0 h-screen overflow-y-auto sm:block hidden">
+        <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
+
         {/* List of Items */}
-        <div className="mb-4">
+        <div className="mb-6">
           {cartData.map((item) => (
             <div
               key={item.id}
-              className="flex items-center justify-between py-3"
+              className="flex items-center justify-between py-4 border-b border-gray-200"
             >
               {/* Product Image */}
               <img
@@ -39,25 +44,40 @@ const Checkout = () => {
 
               {/* Product Details */}
               <div className="flex-1 ml-4">
-                <h3 className=" font-medium">{item.name}</h3>
-                <p className="text-gray-500">Quantity: {item.quantity}</p>
+                <h3 className="font-medium text-gray-800">{item.name}</h3>
+                <p className="text-sm text-gray-500">
+                  Quantity: {item.quantity}
+                </p>
               </div>
 
               {/* Subtotal */}
-              <p>${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="text-gray-800 font-medium">
+                ${(item.price * item.quantity).toFixed(2)}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Total Calculation */}
-        <div className=" pt-4">
-          <div className="flex justify-between ">
-            <p>Subtotals {totalQuantity}</p>
+        <div className="pt-4">
+          <div className="flex justify-between text-gray-600 mb-2">
+            <p>Subtotal ({totalQuantity} items)</p>
+            <p>${grandTotal.toFixed(2)}</p>
           </div>
-          <div className="flex justify-between text-lg font-semibold">
+          <div className="flex justify-between text-lg font-semibold text-gray-800">
             <p>Total</p>
             <p>${grandTotal.toFixed(2)}</p>
           </div>
+        </div>
+
+        {/* Checkout Buttons */}
+        <div className="mt-6">
+          <button className="w-full bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition-colors">
+            Express Checkout
+          </button>
+          <button className="w-full bg-gray-900 text-white py-3 rounded-md font-medium mt-3 hover:bg-gray-800 transition-colors">
+            Pay with G Pay
+          </button>
         </div>
       </div>
     </div>

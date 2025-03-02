@@ -40,39 +40,44 @@ const CapDetails = () => {
   }
   console.log("first", cap);
   return (
-    <div className="pt-24">
-      <div className="container mx-auto p-6 flex flex-row justify-between gap-12 mb-36">
-        <div className="gap-12 flex flex-row">
-          {/* Thumbnail Images */}
-          <div className="flex items-start gap-2 mt-4 flex-col">
-            {cap.images?.map((img, index) => (
+    <div>
+      {/* for desktop mode */}
+      <div className="pt-24">
+        <div className="container mx-auto p-6 flex flex-col md:flex-row md:justify-between md:gap-12 mb-36">
+          <div className="gap-12 flex flex-col md:flex-row">
+            {/* Thumbnail Images */}
+            <div className="flex md:items-start justify-center items-center gap-2 mt-4 flex-row md:flex-col">
+              {cap.images?.map((img, index) => (
+                <img
+                  key={index}
+                  src={img.formats.small.url}
+                  alt={`Thumbnail ${index}`}
+                  className={`md:w-24 md:h-24 w-15 h-15 object-cover md:rounded-2xl rounded-md cursor-pointer ${
+                    img.formats.large.url === mainImage
+                      ? "border-4"
+                      : "hover:border-4"
+                  } `}
+                  onClick={() => setMainImage(img.formats.large.url)}
+                />
+              ))}
+            </div>
+            {/* Main Image Display */}
+            <div className="flex justify-center">
               <img
-                key={index}
-                src={img.formats.small.url}
-                alt={`Thumbnail ${index}`}
-                className={`w-24 h-24 object-cover rounded-2xl cursor-pointer ${
-                  img.formats.large.url === mainImage
-                    ? "border-4"
-                    : "hover:border-4"
-                } `}
-                onClick={() => setMainImage(img.formats.large.url)}
+                src={mainImage}
+                alt={cap.name}
+                className="md:w-[600px] md:h-[800px] object-cover rounded-2xl md:rounded-[120x] shadow-lg"
               />
-            ))}
+            </div>
           </div>
-          {/* Main Image Display */}
-          <div className="flex justify-center">
-            <img
-              src={mainImage}
-              alt={cap.name}
-              className="w-[600px] h-[800px] object-cover rounded-[120x] shadow-lg"
-            />
+          <div className="max-w-[400px]">
+            <h2 className="md:text-2xl text-xl font-bold mb-4 mt-3">
+              {cap.name}
+            </h2>
+            <AddToCart cap={{ cap }} />
+            {/* Description & Price */}
+            <p className="mt-4 text-gray-600">{cap.description}</p>
           </div>
-        </div>
-        <div className="max-w-[400px]">
-          <h2 className="text-2xl font-bold mb-4">{cap.name}</h2>
-          <AddToCart cap={{ cap }} />
-          {/* Description & Price */}
-          <p className="mt-4 text-gray-600">{cap.description}</p>
         </div>
       </div>
     </div>

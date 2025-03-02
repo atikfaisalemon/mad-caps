@@ -5,6 +5,7 @@ const UserContextProvider = ({ children }) => {
   const [cartData, setCartData] = useState([]);
   const [selectedSize, setSelectedSize] = useState("M");
   const [quantity, setQuantity] = useState(1);
+  const [query, setQuery] = useState("");
 
   // cart state
   const updateCartQuantity = (id, newQuantity) => {
@@ -69,10 +70,12 @@ const UserContextProvider = ({ children }) => {
         cartData,
         selectedSize,
         quantity,
+        query,
         totalQuantity,
         setCartData,
         setSelectedSize,
         setQuantity,
+        setQuery,
         addToCart,
         removeFromCart,
         updateCartQuantity,
