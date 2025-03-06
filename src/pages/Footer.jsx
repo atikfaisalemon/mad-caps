@@ -33,7 +33,9 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className={`flex flex-col h-full w-full ${randomFooterBg} p-24`}>
+    <div
+      className={`flex flex-col h-full w-full ${randomFooterBg} md:p-24 p-6`}
+    >
       <div className="flex justify-start">
         <div className="flex items-center md:flex-row flex-col md:justify-evenly w-full text-3xl">
           {/* Random Shape */}
@@ -65,7 +67,9 @@ const Footer = () => {
               ease: "easeOut", // Smooth easing effect
             }}
           >
-            <h1 className="text-4xl md:max-w-[200px]">OBJECTS THAT INSPIRE.</h1>
+            <h1 className="text-4xl font-bold md:max-w-[200px]">
+              OBJECTS THAT INSPIRE.
+            </h1>
           </motion.div>
 
           <div className="flex flex-row justify-between text-sm gap-24">

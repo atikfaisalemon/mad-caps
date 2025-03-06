@@ -15,17 +15,19 @@ const CartList = () => {
   ); // Sum (price * quantity)
 
   return (
-    <div className="mx-24 pt-24">
+    <div className="md:mx-24 mx-3 pt-24">
       <div className="text-2xl">{items} items in Cart</div>
       <div className="w-full h-1 bg-black"></div>
 
       {items > 0 && (
-        <div className="flex flex-row justify-between items-center text-2xl my-4">
-          <h1>Item</h1>
-          <div className="flex flex-row text-2xl w-[50%] justify-between">
-            <h1>Price</h1>
-            <h1>Qty</h1>
-            <h1>Subtotal</h1>
+        <div className="md:block hidden">
+          <div className="flex flex-row justify-between items-center text-2xl my-4">
+            <h1>Item</h1>
+            <div className="flex flex-row text-2xl w-[50%] justify-between">
+              <h1>Price</h1>
+              <h1>Qty</h1>
+              <h1>Subtotal</h1>
+            </div>
           </div>
         </div>
       )}
@@ -46,7 +48,7 @@ const CartList = () => {
           <h2>UPDATE CART</h2>
         </div>
         <div className="  text-right flex flex-col gap-6">
-          <div className="text-2xl  mt-4 ">
+          <div className="md:text-2xl text-lg  mt-4 ">
             <span className="font-semibold"> Subtotal </span>TK{" "}
             {subtotal.toFixed(2)}
           </div>
@@ -55,7 +57,7 @@ const CartList = () => {
               onClick={() => {
                 navigate("/checkout");
               }}
-              className="bg-black  text-xl   text-white px-6 py-2 rounded-full"
+              className="bg-black  md:text-xl text-lg text-white px-6 py-2 rounded-full"
             >
               CHECOUT
             </button>

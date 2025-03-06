@@ -109,7 +109,7 @@ const NavBar = () => {
 
           <div className="flex flex-row gap-6 items-center">
             <NavLink to="/account">
-              <FiUser className="text-xl" />
+              <FiUser className="text-xl " />
             </NavLink>
             <NavLink
               to="/cartlist"
@@ -184,9 +184,6 @@ const NavBar = () => {
 
           {/* 🛒 User & Cart Icons */}
           <div className="flex flex-row items-center gap-3">
-            <NavLink to="/account">
-              <FiUser className="text-xl" />
-            </NavLink>
             <NavLink to="/cartlist" className="relative">
               <div className="border-2 p-1 px-2 rounded-full relative">
                 {totalQuantity > 0 && (
