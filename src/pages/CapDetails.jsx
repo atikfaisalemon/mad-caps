@@ -46,7 +46,7 @@ const CapDetails = () => {
         <div className="container mx-auto p-6 flex flex-col md:flex-row md:justify-between md:gap-12 mb-36">
           <div className="gap-12 flex flex-col md:flex-row">
             {/* Thumbnail Images */}
-            <div className="flex md:items-start justify-center items-center gap-2 mt-4 flex-row md:flex-col">
+            <div className="flex md:items-start justify-center items-center gap-2 mt-4 flex-row md:flex-col order-1 md:order-none">
               {cap.images?.map((img, index) => (
                 <img
                   key={index}
@@ -61,15 +61,17 @@ const CapDetails = () => {
                 />
               ))}
             </div>
+
             {/* Main Image Display */}
-            <div className="flex justify-center">
+            <div className="flex justify-center order-0 md:order-1">
               <img
                 src={mainImage}
                 alt={cap.name}
-                className="md:w-[600px] md:h-[800px] object-cover rounded-2xl md:rounded-[120x] shadow-lg"
+                className="md:w-[600px] md:h-[800px] h-90 w-90 object-cover rounded-2xl md:rounded-[120px] shadow-lg"
               />
             </div>
           </div>
+
           <div className="max-w-[400px]">
             <h2 className="md:text-2xl text-xl font-bold mb-4 mt-3">
               {cap.name}

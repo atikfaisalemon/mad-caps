@@ -76,13 +76,20 @@ const CheckoutForm = ({ total, product }) => {
 
   return (
     <div className="mx-auto bg-white">
-      <h1 className="text-center text-3xl font-bold mb-10">Checkout Info</h1>
+      <h1 className="text-center md:text-3xl text-lg font-bold">
+        Checkout Info
+      </h1>
+      <div className="flex justify-center">
+        <h2 className="text-center text-white mt-3 mb-10 inline-block  bg-blue-400 px-2">
+          Cart Overview
+        </h2>
+      </div>
       {orderStatus && (
         <p className="text-center font-bold text-lg text-green-600">
           {orderStatus}
         </p>
       )}
-      <h2 className="text-xl font-bold mb-4">Contact Info</h2>
+      <h2 className="md:text-xl font-bold mb-4">Contact Info</h2>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-4">
           <input
@@ -115,7 +122,7 @@ const CheckoutForm = ({ total, product }) => {
             />
           </div>
 
-          <h2 className="text-xl font-bold mt-4 mb-2">Shipping Info</h2>
+          <h2 className="md:text-xl font-bold mt-4 mb-2">Shipping Info</h2>
           <input
             type="text"
             name="address"
@@ -149,15 +156,15 @@ const CheckoutForm = ({ total, product }) => {
             placeholder="Note (optional)"
             value={formData.note}
             onChange={handleChange}
-            className="w-full p-2 border rounded mb-4 focus:outline-none focus:ring-0  focus:border-green-500 transition-all duration-200"
+            className="w-full p-2  border rounded focus:outline-none focus:ring-0  focus:border-green-500 transition-all duration-200"
           />
         </div>
 
-        <div className="bg-gray-100 p-4 rounded-md">
+        <div className="bg-gray-100 p-4 rounded-md mt-10">
           <div className="flex flex-col justify-center items-center gap-2">
             <p className="text-gray-700">Your total payable amount is</p>
             <h2 className="text-3xl font-bold text-green-600">৳{total}</h2>
-            <p className="text-gray-600 text-2xl font-semibold mt-2">
+            <p className="text-gray-600 md:text-2xl text-lg font-semibold mt-2">
               Breakdown
             </p>
           </div>
