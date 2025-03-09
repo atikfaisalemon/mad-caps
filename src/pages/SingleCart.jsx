@@ -28,8 +28,8 @@ const SingleCart = ({ cartData }) => {
       <div className="w-full h-[1px] bg-gray-600 mt-4"></div>
 
       {/* Cart Item Container */}
-      <div className="p-4 flex  md:flex-row flex-col items-center  justify-between gap-4">
-        <div className="flex md:flex-row items-center gap-6 ">
+      <div className="p-4 flex md:flex-row flex-col items-center  md:justify-between gap-4">
+        <div className=" flex flex-row items-center justify-between gap-6 ">
           {/* Remove Button */}
           <img
             onClick={() => removeFromCart(cartData.id)}
@@ -39,6 +39,7 @@ const SingleCart = ({ cartData }) => {
           />
 
           {/* Product Image */}
+
           <img
             src={imageUrl}
             alt={cartData.name}
@@ -50,7 +51,7 @@ const SingleCart = ({ cartData }) => {
         </div>
 
         {/* Price & Quantity */}
-        <div className="flex flex-row  items-center justify-between md:w-[50%]">
+        <div className=" flex flex-row  items-center justify-between md:w-[50%]">
           <p className="font-bold">${cartData.price.toFixed(2)}</p>
           <QuantityButton onChange={handleQuantityChange} value={quantity} />
           <p className="font-bold">${(cartData.price * quantity).toFixed(2)}</p>

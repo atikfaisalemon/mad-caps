@@ -67,7 +67,7 @@ const Footer = () => {
               ease: "easeOut", // Smooth easing effect
             }}
           >
-            <h1 className="text-4xl font-bold md:max-w-[200px]">
+            <h1 className="text-4xl font-bold md:max-w-[200px] mt-">
               OBJECTS THAT INSPIRE.
             </h1>
           </motion.div>

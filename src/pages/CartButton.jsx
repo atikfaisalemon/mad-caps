@@ -7,8 +7,7 @@ const CartButton = ({ cap }) => {
   const capData = cap.cap;
   const [quantity, setQuantity] = useState(1);
 
-  const { cartData, addToCart, cart } = useContext(UserContext);
-  console.log("last", cart);
+  const { addToCart } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -17,7 +16,6 @@ const CartButton = ({ cap }) => {
     addToCart(capData, quantity);
 
     navigate("/cartlist");
-    console.log("cart item", cartData);
   };
 
   return (

@@ -9,13 +9,13 @@ import CapDetails from "./pages/CapDetails";
 import CartList from "./pages/CartList";
 import Checkout from "./pages/Checkout";
 import CreateAccount from "./pages/CreateAccount";
+import OrderSuccess from "./pages/OrderSuccess";
 // import Footer from "./pages/Footer";
 
 function App() {
   return (
     <UserContextProvider>
       <Routes>
-        {/* Wrap all navbar-related pages under a common layout */}
         <Route element={<NavBar />}>
           <Route path="/" element={<Shop />} />
           <Route path="/:id" element={<CapDetails />} />
@@ -24,10 +24,9 @@ function App() {
           <Route path="account" element={<Account />} />
           <Route path="cartlist" element={<CartList />} />
           <Route path="create-account" element={<CreateAccount />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
-
-        {/* Checkout page does not need NavBar */}
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="ordersuccess" element={<OrderSuccess />} />
       </Routes>
     </UserContextProvider>
   );

@@ -59,7 +59,7 @@ const CartList = () => {
               }}
               className="bg-black  md:text-xl text-lg text-white px-6 py-2 rounded-full"
             >
-              CHECOUT
+              CHECKOUT
             </button>
           </div>
           <div className="text-right">
