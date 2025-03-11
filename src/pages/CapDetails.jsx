@@ -33,7 +33,6 @@ const CapDetails = () => {
     }
   }, [cap]);
   console.log("params", id);
-  console.log("Fetched data", cap);
 
   if (!cap) {
     return <h2 className="text-center text-red-500">Cap not found!</h2>;
