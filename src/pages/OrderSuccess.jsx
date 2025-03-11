@@ -4,8 +4,30 @@ import UserContext from "../context/UserContext";
 
 const OrderSuccess = () => {
   const { result } = useContext(UserContext);
+
+  if (!result) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 text-center">
+        <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+          <h2 className="text-2xl font-bold text-red-600 mb-2">
+            No Order Found
+          </h2>
+          <p className="text-gray-700 mb-4">
+            It seems like you don&apos;t have any recent orders.
+          </p>
+          <NavLink to="/">
+            <button className="bg-green-600 text-white px-4 sm:px-6 py-2 rounded font-bold hover:bg-green-700 transition">
+              Shop Now
+            </button>
+          </NavLink>
+        </div>
+      </div>
+    );
+  }
+
   const order = result.data;
   console.log("first", order);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 text-center">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
@@ -28,7 +50,7 @@ const OrderSuccess = () => {
           </div>
         </div>
         <h2 className="text-2xl font-bold text-green-600 mb-2">
-          Thank you, We've received your order.
+          Thank you, We&apos;ve received your order.
         </h2>
         <p className="text-gray-700 mb-4">
           Your order is placed with <strong>Cash On Delivery</strong>. You will

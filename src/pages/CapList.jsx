@@ -47,7 +47,7 @@ function CapList() {
                 <div
                   key={cap.documentId}
                   onClick={() => {
-                    navigate(`/${cap.documentId}`);
+                    navigate(`/product/${cap.documentId}`);
                   }}
                   className="p-4 rounded"
                 >

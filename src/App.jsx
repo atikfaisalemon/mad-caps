@@ -18,15 +18,15 @@ function App() {
       <Routes>
         <Route element={<NavBar />}>
           <Route path="/" element={<Shop />} />
-          <Route path="/:id" element={<CapDetails />} />
-          <Route path="about" element={<About />} />
-          <Route path="search" element={<Search />} />
-          <Route path="account" element={<Account />} />
-          <Route path="cartlist" element={<CartList />} />
-          <Route path="create-account" element={<CreateAccount />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="/product/:id" element={<CapDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/cartlist" element={<CartList />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
-        <Route path="ordersuccess" element={<OrderSuccess />} />
+        <Route path="/ordersuccess" element={<OrderSuccess />} />
       </Routes>
     </UserContextProvider>
   );

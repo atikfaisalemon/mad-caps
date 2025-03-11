@@ -73,7 +73,7 @@ const Slider = () => {
               <SwiperSlide key={product.documentId}>
                 <img
                   onClick={() => {
-                    navigate(`/${product.documentId}`);
+                    navigate(`/product/${product.documentId}`);
                   }}
                   src={product.images[0]?.formats.large.url ?? ""}
                   className="h-[600px] object-cover"
