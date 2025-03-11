@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
+
 const Slider = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,38 +46,42 @@ const Slider = () => {
   return (
     <>
       <div className="pt-16 ">
-        <Swiper
-          slidesPerView={1}
-          centeredSlides={true}
-          slidesPerGroupSkip={1}
-          grabCursor={true}
-          keyboard={{
-            enabled: true,
-          }}
-          loop={true}
-          breakpoints={{
-            769: {
-              slidesPerView: 3,
-              slidesPerGroup: 1,
-            },
-          }}
-          scrollbar={true}
-          navigation={false}
-          pagination={true}
-          modules={[Keyboard, Navigation, Pagination]}
-        >
-          {data.map((product) => (
-            <SwiperSlide key={product.documentId}>
-              <img
-                onClick={() => {
-                  navigate(`/${product.documentId}`);
-                }}
-                src={product.images[0]?.formats.large.url ?? ""}
-                className="h-[600px] object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {loading ? (
+          <div className="h-[600px] object-cover bg-gray-300 animate-pulse"></div>
+        ) : (
+          <Swiper
+            slidesPerView={1}
+            centeredSlides={true}
+            slidesPerGroupSkip={1}
+            grabCursor={true}
+            keyboard={{
+              enabled: true,
+            }}
+            loop={true}
+            breakpoints={{
+              769: {
+                slidesPerView: 3,
+                slidesPerGroup: 1,
+              },
+            }}
+            scrollbar={true}
+            navigation={false}
+            pagination={true}
+            modules={[Keyboard, Navigation, Pagination]}
+          >
+            {data.map((product) => (
+              <SwiperSlide key={product.documentId}>
+                <img
+                  onClick={() => {
+                    navigate(`/${product.documentId}`);
+                  }}
+                  src={product.images[0]?.formats.large.url ?? ""}
+                  className="h-[600px] object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </div>
     </>
   );
