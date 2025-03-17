@@ -129,7 +129,7 @@ const NavBar = () => {
 
       {/* 📱 Mobile Navbar */}
       <div
-        className={`block md:hidden w-full z-20 bg-white p-4 px-3  transition-all duration-300 ${
+        className={`block fixed md:hidden w-full z-20 bg-white p-4 px-3  transition-all duration-300 ${
           isVisible ? "top-0" : "-top-24"
         }`}
       >
