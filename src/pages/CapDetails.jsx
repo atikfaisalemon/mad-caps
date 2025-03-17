@@ -93,7 +93,7 @@ const CapDetails = () => {
             </div>
           </div>
 
-          <div className="max-w-[400px]">
+          <div className="max-w-[400px] ">
             <h2 className="md:text-2xl text-xl font-bold mb-4 mt-3">
               {cap.name}
             </h2>

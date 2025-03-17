@@ -1,6 +1,8 @@
 import { NavLink } from "react-router";
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable"; // ✅ Import explicitly
 
 const OrderSuccess = () => {
   const { result } = useContext(UserContext);
@@ -26,7 +28,47 @@ const OrderSuccess = () => {
   }
 
   const order = result.data;
-  console.log("first", order);
+  console.log("Order Data:", order);
+
+  const generateInvoice = () => {
+    const doc = new jsPDF();
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("Invoice", 105, 15, { align: "center" });
+
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Order Reference: ${order.documentId}`, 20, 30);
+    doc.text(`Customer Name: ${order.name}`, 20, 40);
+    doc.text(`Shipping Address: ${order.address}, ${order.city}`, 20, 50);
+    doc.text(`Phone: ${order.phone}`, 20, 60);
+    doc.text(`Order Date: ${new Date().toLocaleDateString()}`, 20, 70);
+    doc.text(`Total Amount: BDT ${order.amount}`, 20, 80);
+    doc.text("Payment Method: Cash On Delivery", 20, 90);
+
+    doc.text("Ordered Products:", 20, 105);
+
+    // ✅ Ensure autoTable is used correctly
+    autoTable(doc, {
+      startY: 110,
+      head: [["#", "Product", "Unit Price", "Quantity", "Total"]],
+      body: order.products.map((item, index) => [
+        index + 1,
+        item.name,
+        `৳${item.price}`,
+        item.quantity,
+        `৳${item.price * item.quantity}`,
+      ]),
+    });
+
+    doc.text(
+      "Thank you for shopping with us!",
+      20,
+      doc.autoTable.previous.finalY + 20
+    );
+
+    doc.save(`Invoice-${order.documentId}.pdf`);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 text-center">
@@ -77,50 +119,12 @@ const OrderSuccess = () => {
               Shop Again
             </button>
           </NavLink>
-          <button className="bg-orange-500 text-white px-4 sm:px-6 py-2 rounded font-bold hover:bg-orange-600 transition">
+          <button
+            onClick={generateInvoice}
+            className="bg-orange-500 text-white px-4 sm:px-6 py-2 rounded font-bold hover:bg-orange-600 transition"
+          >
             Download Invoice
           </button>
-        </div>
-      </div>
-
-      <div className="mt-8 text-center">
-        <div className="mt-4">
-          <p>Like us on Facebook</p>
-          <div className="mt-2">
-            <button className="bg-blue-600 text-white px-4 py-1 rounded-md font-semibold hover:bg-blue-700">
-              👍 Follow
-            </button>
-            <span className="ml-2 text-gray-700">
-              762K people are following this.
-            </span>
-          </div>
-        </div>
-
-        <p className="text-gray-700 mt-6 mb-4">
-          Get the latest updates on promo codes, discounts, and offers.
-        </p>
-        <div className="flex justify-center gap-4 mb-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Google_Play_Store_badge_EN.svg/200px-Google_Play_Store_badge_EN.svg.png"
-            alt="Google Play"
-            className="w-32 cursor-pointer"
-          />
-          <img
-            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="App Store"
-            className="w-32 cursor-pointer"
-          />
-        </div>
-        <div className="flex justify-center">
-          <iframe
-            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FYourPage&width=100&layout=button_count&action=like&size=small&share=true"
-            width="100"
-            height="30"
-            className="border-none overflow-hidden"
-            scrolling="no"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
         </div>
       </div>
     </div>

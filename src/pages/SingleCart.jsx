@@ -28,12 +28,12 @@ const SingleCart = ({ cartData }) => {
       <div className="w-full h-[1px] bg-gray-600 mt-4"></div>
 
       {/* Cart Item Container */}
-      <div className="p-4 flex md:flex-row flex-col items-center  md:justify-between gap-4">
+      <div className=" hidden p-4 md:flex flex-row justify-between">
         <div className=" flex flex-row items-center justify-between gap-6 ">
           {/* Remove Button */}
           <img
             onClick={() => removeFromCart(cartData.id)}
-            className="border-2 rounded-full w-9 h-9 cursor-pointer md:-order-1 order-1"
+            className="border-2 rounded-full w-9 h-9 cursor-pointer"
             src="./x.png"
             alt="Remove"
           />
@@ -43,7 +43,7 @@ const SingleCart = ({ cartData }) => {
           <img
             src={imageUrl}
             alt={cartData.name}
-            className="md:w-24 md:h-24 w-20 h-20 object-cover rounded-lg "
+            className="md:w-24 md:h-24 object-cover rounded-lg "
           />
 
           {/* Product Name */}
@@ -55,6 +55,44 @@ const SingleCart = ({ cartData }) => {
           <p className="font-bold">${cartData.price.toFixed(2)}</p>
           <QuantityButton onChange={handleQuantityChange} value={quantity} />
           <p className="font-bold">${(cartData.price * quantity).toFixed(2)}</p>
+        </div>
+      </div>
+
+      {/* for mibile display */}
+      <div className="md:hidden p-4 flex flex-col items-center gap-4">
+        <div className="flex flex-row items-center justify-between w-full">
+          {/* Product Image */}
+          <div className="flex justify-center items-center gap-6">
+            <img
+              src={imageUrl}
+              alt={cartData.name}
+              className="w-20 h-20 object-cover rounded-lg"
+            />
+
+            {/* Product Name */}
+            <h3 className="text-md md:text-lg font-semibold">
+              {cartData.name}
+            </h3>
+          </div>
+
+          {/* Remove Button */}
+          <img
+            onClick={() => removeFromCart(cartData.id)}
+            className="border-2 rounded-full w-9 h-9 cursor-pointer"
+            src="./x.png"
+            alt="Remove"
+          />
+        </div>
+
+        {/* Price & Quantity */}
+        <div className="flex flex-row items-center gap-6 w-full">
+          <QuantityButton onChange={handleQuantityChange} value={quantity} />
+          <p className="font-bold text-gray-600 text-lg">
+            ৳{cartData.price.toFixed(2)}
+          </p>
+          <p className="font-bold text-lg md:text-base">
+            ৳{(cartData.price * quantity).toFixed(2)}
+          </p>
         </div>
       </div>
     </div>
