@@ -5,6 +5,8 @@ import { FaBars, FaTimes } from "react-icons/fa"; // Importing burger and cross 
 import { FiSearch, FiUser } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import Footer from "./pages/Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NavBar = () => {
   const { totalQuantity } = useContext(UserContext);
@@ -15,6 +17,12 @@ const NavBar = () => {
 
   const navigate = useNavigate();
   const { query, setQuery } = useContext(UserContext);
+
+  const handleCartClick = () => {
+    if (totalQuantity === 0) {
+      toast.warn("Cart is empty!", { position: "top-right", autoClose: 2000 });
+    }
+  };
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -35,7 +43,7 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  console.log("qurey", query);
+
   return (
     <div>
       {/* 🖥️ Desktop Navbar */}
@@ -112,7 +120,7 @@ const NavBar = () => {
               <FiUser className="text-xl " />
             </NavLink>
             <NavLink
-              to="/cartlist"
+              to={totalQuantity > 0 ? "/cartlist" : "/"}
               className={({ isActive }) =>
                 `border-2 px-6 p-1 rounded-full border-black flex items-center ${
                   isActive
@@ -120,6 +128,7 @@ const NavBar = () => {
                     : "hover:bg-black hover:text-white"
                 }`
               }
+              onClick={handleCartClick}
             >
               CART {totalQuantity}
             </NavLink>
@@ -180,8 +189,14 @@ const NavBar = () => {
 
           {/* 🛒 User & Cart Icons */}
           <div className="flex flex-row items-center gap-3">
-            <NavLink to="/cartlist" className="relative">
-              <div className="border-2 p-1 px-2 rounded-full relative">
+            <NavLink
+              to={totalQuantity > 0 ? "/cartlist" : "/"}
+              className="relative"
+            >
+              <div
+                className="border-2 p-1 px-2 rounded-full relative"
+                onClick={handleCartClick}
+              >
                 {totalQuantity > 0 && (
                   <span className="absolute -top-2 -right-2 text-xs bg-red-500 text-white rounded-full px-2">
                     {totalQuantity}
@@ -199,18 +214,21 @@ const NavBar = () => {
             <NavLink
               to="/"
               className="border-2 px-6 p-1 rounded-full border-black w-full text-center py-2 mb-2 hover:bg-black hover:text-white"
+              onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
             >
               SHOP
             </NavLink>
             <NavLink
               to="/about"
               className="border-2 px-6 p-1 rounded-full border-black w-full text-center py-2 mb-2 hover:bg-black hover:text-white"
+              onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
             >
               ABOUT
             </NavLink>
             <NavLink
               to="/account"
               className="border-2 px-6 p-1 rounded-full border-black w-full text-center py-2 mb-2 hover:bg-black hover:text-white"
+              onClick={() => setIsBurgerMenuOpen(!isBurgerMenuOpen)}
             >
               ACCOUNT
             </NavLink>
@@ -220,6 +238,7 @@ const NavBar = () => {
 
       <Outlet />
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

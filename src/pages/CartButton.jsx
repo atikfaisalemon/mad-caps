@@ -31,7 +31,7 @@ const CartButton = ({ cap }) => {
           onClick={handleAddToCart}
           className="md:text-xl border-2 p-1 px-15 rounded-full hover:bg-black hover:text-white hover:border-black"
         >
-          ADD TK {capData.price} {capData.name}
+          ADD TK {capData.price}
         </button>
       </div>
     </div>
