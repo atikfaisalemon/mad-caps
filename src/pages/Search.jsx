@@ -47,7 +47,7 @@ function CapList() {
             data.map((cap, index) => (
               <motion.div
                 key={cap.documentId}
-                onClick={() => navigate(`/${cap.documentId}`)}
+                onClick={() => navigate(`/product/${cap.documentId}`)}
                 className="p-4 rounded h-[600px] cursor-pointer"
                 initial={{ opacity: 0, y: 50 }} // Starts slightly below and invisible
                 animate={{ opacity: 1, y: 0 }} // Moves to original position
