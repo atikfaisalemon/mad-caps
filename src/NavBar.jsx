@@ -128,7 +128,7 @@ const NavBar = () => {
       </div>
 
       {/* 📱 Mobile Navbar */}
-      <div className="block md:hidden fixed w-full z-20 bg-white p-4 px-3  transition-all duration-300 top-0 ">
+      <div className="block md:hidden fixed w-full z-20 bg-white p-4 px-3 shadow-xl transition-all duration-300 top-0 ">
         {/* 🔍 Mobile Search Box (Dropdown) */}
         <div
           className={`overflow-hidden transition-all duration-500 ${
