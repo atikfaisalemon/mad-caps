@@ -29,7 +29,7 @@ const CartButton = ({ cap }) => {
         />
         <button
           onClick={handleAddToCart}
-          className="text-2xl font-bold border-2 p-1 md:px-15 px-6 rounded-md text-white md:text-black bg-black md:bg-white  md:hover:bg-black md:hover:text-white md:hover:border-black"
+          className="md:text-2xl text-l font-bold border-2 p-1 md:px-15 px-6 rounded-md text-white md:text-black bg-black md:bg-white  md:hover:bg-black md:hover:text-white md:hover:border-black"
         >
           BUY IT NOW
         </button>
